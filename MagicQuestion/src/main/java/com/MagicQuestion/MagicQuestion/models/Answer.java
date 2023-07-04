@@ -22,7 +22,6 @@ public class Answer {
     private String answer;
 
     public Answer(String question) {
-        System.out.println("ANSWER");
         this.id = Integer.toString(idCounter++);
         this.question = question;
         Random rand = new Random();

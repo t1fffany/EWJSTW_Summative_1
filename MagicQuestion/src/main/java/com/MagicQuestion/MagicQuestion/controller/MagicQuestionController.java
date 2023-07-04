@@ -10,7 +10,6 @@ public class MagicQuestionController {
 
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     public ResponseEntity<String> magic8BallAPI(@RequestParam String question) {
-        System.out.println("API");
         Answer answer = new Answer(question);
         return new ResponseEntity<>(answer.toString(), HttpStatus.OK);
     }
