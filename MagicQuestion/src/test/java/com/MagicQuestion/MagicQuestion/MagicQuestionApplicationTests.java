@@ -19,4 +19,8 @@ class MagicQuestionApplicationTests {
 		assertTrue(answer.getResponses().contains(answer.getAnswer()));
 	}
 
+	// TODO: confirm if we need a Question model
+	// TODO: test if request is 200
+	// TODO: clarify rubric
+
 }
