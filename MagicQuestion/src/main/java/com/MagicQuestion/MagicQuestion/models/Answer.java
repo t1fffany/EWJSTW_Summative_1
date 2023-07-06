@@ -3,6 +3,7 @@ package com.MagicQuestion.MagicQuestion.models;
 import java.util.List;
 import java.util.Random;
 
+// may not be needed
 public class Answer {
     private static int idCounter = 0;
     private static List<String> responses = List.of(
