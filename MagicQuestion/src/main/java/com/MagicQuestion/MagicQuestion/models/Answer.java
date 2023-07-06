@@ -2,21 +2,21 @@ package com.MagicQuestion.MagicQuestion.models;
 
 public class Answer {
     private int id;
-    private Question question;
+    private String question;
     private String answer;
     public Answer() {}
 
-    public Answer(Question question, String answer, int id){
+    public Answer(String question, String answer, int id){
         this.id = id;
         this.question = question;
         this.answer = answer;
     }
 
-    public Question getQuestion() {
+    public String getQuestion() {
         return question;
     }
 
-    public void setQuestion(Question question) {
+    public void setQuestion(String question) {
         this.question = question;
     }
 

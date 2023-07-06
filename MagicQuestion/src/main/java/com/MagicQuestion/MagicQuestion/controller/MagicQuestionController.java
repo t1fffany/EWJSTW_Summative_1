@@ -85,7 +85,7 @@ public class MagicQuestionController {
 
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Answer createAnswer(@RequestBody Question question) {
+    public Answer createAnswer(@RequestBody String question) {
         Answer answer = new Answer();
         answer.setId(idCounter++);
         answer.setQuestion(question);
