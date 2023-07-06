@@ -5,7 +5,6 @@ import com.MagicQuestion.MagicQuestion.models.Definition;
 import com.MagicQuestion.MagicQuestion.models.Question;
 import com.MagicQuestion.MagicQuestion.models.Quote;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -49,8 +48,6 @@ public class MagicQuestionControllerTest {
         // Convert Java object to JSON
         String outputJson = mapper.writeValueAsString(defTest);
 
-        when(magicQuestionController.wordOfTheDay()).thenReturn(defTest);
-
         // ACT
         mockMvc.perform(get("/word"))                // Perform the GET request
                 .andDo(print())                          // Print results to console
@@ -74,7 +71,6 @@ public class MagicQuestionControllerTest {
         mockMvc.perform(get("/quote"))                // Perform the GET request
                 .andDo(print())                          // Print results to console
                 .andExpect(status().isOk());            // ASSERT (status code is 200)
-                //.andExpect(content().json(outputJson));
     }
 
 
