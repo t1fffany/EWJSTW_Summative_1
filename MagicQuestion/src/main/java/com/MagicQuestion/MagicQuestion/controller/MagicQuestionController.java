@@ -80,7 +80,6 @@ public class MagicQuestionController {
         if (quoteList != null && !quoteList.isEmpty()) {
             dailyQuote = quoteList.get(rand.nextInt(quoteList.size()));
         }
-
         return dailyQuote;
     }
 

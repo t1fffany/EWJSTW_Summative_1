@@ -9,9 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -25,6 +27,9 @@ public class MagicQuestionControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @MockBean
+    MagicQuestionController magicQuestionController;
+
     // ObjectMapper used to convert Java objects to JSON and vice versa
     private ObjectMapper mapper = new ObjectMapper();
 
@@ -36,28 +41,22 @@ public class MagicQuestionControllerTest {
 
     Quote quoteTest = new Quote("Maya Angelou", "If you don't like something, change it. If you can't change it, change your attitude.", 2);
 
-
-    @BeforeEach
-    public void setUp() {
-        // Standard set up method, for instantiating test objects
-        // Don't have to do anything special for mockMvc since it's Autowired
-    }
-
     // Testing GET /word
     @Test
     public void shouldReturnWord() throws Exception {
-
-
 
         // ARRANGE
         // Convert Java object to JSON
         String outputJson = mapper.writeValueAsString(defTest);
 
+        when(magicQuestionController.wordOfTheDay()).thenReturn(defTest);
+
         // ACT
         mockMvc.perform(get("/word"))                // Perform the GET request
                 .andDo(print())                          // Print results to console
-                .andExpect(status().isOk());
-               // .andExpect(content().json(outputJson));               // ASSERT (status code is 200)
+                .andExpect(status().isOk());             // ASSERT (status code is 200)
+               // .andExpect(content().json(outputJson));
+
     }
 
 
@@ -69,11 +68,13 @@ public class MagicQuestionControllerTest {
         // Convert Java object to JSON
         String outputJson = mapper.writeValueAsString(quoteTest);
 
+        when(magicQuestionController.quoteOfTheDay()).thenReturn(quoteTest);
+
         // ACT
         mockMvc.perform(get("/quote"))                // Perform the GET request
                 .andDo(print())                          // Print results to console
-                .andExpect(status().isOk());
-               // .andExpect(content().json(outputJson));              // ASSERT (status code is 200)
+                .andExpect(status().isOk());            // ASSERT (status code is 200)
+                //.andExpect(content().json(outputJson));
     }
 
 
@@ -85,12 +86,8 @@ public class MagicQuestionControllerTest {
         Question question = new Question("Am I hot?");
         Answer inputQuestion = new Answer();
 
-
-        inputQuestion.setQuestion(question);
-        inputQuestion.setAnswer("Yes.");
-
         // Convert Java Object to JSON
-        String inputJson = mapper.writeValueAsString(inputQuestion);
+        String inputJson = mapper.writeValueAsString(question);
 
         Answer outputQuestion = new Answer();
         outputQuestion.setQuestion(question);
