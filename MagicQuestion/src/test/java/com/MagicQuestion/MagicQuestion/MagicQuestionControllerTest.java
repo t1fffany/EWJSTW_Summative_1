@@ -2,8 +2,8 @@ package com.MagicQuestion.MagicQuestion.controller;
 
 import com.MagicQuestion.MagicQuestion.models.Answer;
 import com.MagicQuestion.MagicQuestion.models.Definition;
-import com.MagicQuestion.MagicQuestion.models.Question;
-import com.MagicQuestion.MagicQuestion.models.Quote;
+//import com.MagicQuestion.MagicQuestion.models.Question;
+//import com.MagicQuestion.MagicQuestion.models.Quote;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
