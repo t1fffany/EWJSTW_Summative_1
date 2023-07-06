@@ -2,5 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/MagicQuestion/src/main/java" charset="UTF-8" />
+<<<<<<< HEAD
+=======
+    <file url="file://$PROJECT_DIR$/MagicQuestion/src/main/resources" charset="UTF-8" />
+>>>>>>> 4fc53e550e63e0937dddeb71aaaf648983ffba7b
   </component>
 </project>
