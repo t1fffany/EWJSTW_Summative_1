@@ -18,8 +18,13 @@ public class Answer {
             "As unlikely as running out of shows to watch on Netflix.",
             "It's settled, like your 'Continue Watching' list."
     );
+
+
     private String id;
+
     private String question;
+
+
     private String answer;
 
     public Answer(String question) {
@@ -35,6 +40,19 @@ public class Answer {
 
     public static List<String> getResponses() {
         return responses;
+    }
+
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     @Override

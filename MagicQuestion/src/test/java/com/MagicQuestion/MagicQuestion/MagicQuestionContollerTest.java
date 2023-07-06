@@ -12,6 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -24,20 +25,42 @@ public class MagicQuestionControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @MockBean
+    MagicQuestionController magicQuestionController;
+
+    // ObjectMapper used to convert Java objects to JSON and vice versa
+    private ObjectMapper mapper = new ObjectMapper();
+
+    Definition defTest = new Definition("abscond", "to secretly leave a place and go into hiding", 1);
+
+    Quote quoteTest = new Quote("Maya Angelou", "If you don't like something, change it. If you can't change it, change your attitude.", 2);
 
     // Testing GET /word
     @Test
     public void shouldReturnWord() throws Exception {
+
+        // ARRANGE
+        // Convert Java object to JSON
+        String outputJson = mapper.writeValueAsString(defTest);
+
         // ACT
         mockMvc.perform(get("/word"))                // Perform the GET request
                 .andDo(print())                          // Print results to console
                 .andExpect(status().isOk());             // ASSERT (status code is 200)
+
     }
 
 
     // Testing GET /quote
     @Test
     public void shouldReturnQuote() throws Exception {
+
+        // ARRANGE
+        // Convert Java object to JSON
+        String outputJson = mapper.writeValueAsString(quoteTest);
+
+        when(magicQuestionController.quoteOfTheDay()).thenReturn(quoteTest);
+
         // ACT
         mockMvc.perform(get("/quote"))                // Perform the GET request
                 .andDo(print())                          // Print results to console
@@ -50,7 +73,7 @@ public class MagicQuestionControllerTest {
     public void shouldCreateNewPost() throws Exception {
 
         // ARRANGE
-        Question String = new Question("Am I hot?");
+        String question = "Am I hot?";
         Answer inputQuestion = new Answer();
 
         // Convert Java Object to JSON
