@@ -1,33 +1,26 @@
 package com.MagicQuestion.MagicQuestion.models;
 
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
-import java.util.List;
 
->>>>>>> 4fc53e550e63e0937dddeb71aaaf648983ffba7b
 public class Definition {
 
-    private int id;
+    private String id;
     private String word;
     private String definition;
 
-<<<<<<< HEAD
-=======
+    public Definition() {
+    }
 
->>>>>>> 4fc53e550e63e0937dddeb71aaaf648983ffba7b
-    public Definition() {}
-    public Definition(String word, String definition, int id){
+    public Definition(String word, String definition, String id) {
         this.id = id;
         this.word = word;
         this.definition = definition;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -49,10 +42,6 @@ public class Definition {
 
     @Override
     public String toString() {
-        return getWord() + " "+ getDefinition();
+        return getWord() + " " + getDefinition();
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4fc53e550e63e0937dddeb71aaaf648983ffba7b

@@ -44,7 +44,7 @@ public class Answer {
 
 
     public void setId(String id) {
-        this.id = id;
+        this.id = String.valueOf(id);
     }
 
     public void setAnswer(String answer) {
@@ -62,6 +62,3 @@ public class Answer {
 
 
 }
-
-
-

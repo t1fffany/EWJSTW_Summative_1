@@ -14,8 +14,9 @@ public class MagicQuestionController {
 
 
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
-    public ResponseEntity<String> magic8BallAPI(@RequestParam String question) {
+    @ResponseStatus(value = HttpStatus.OK)
+    public Answer magic8BallAPI(@RequestBody String question) {
         Answer answer = new Answer(question);
-        return new ResponseEntity<>(answer.toString(), HttpStatus.OK);
+        return answer;
     }
 }
