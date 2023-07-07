@@ -31,18 +31,9 @@ public class MagicQuestionControllerTest {
     // ObjectMapper used to convert Java objects to JSON and vice versa
     private ObjectMapper mapper = new ObjectMapper();
 
-    Definition defTest = new Definition("abscond", "to secretly leave a place and go into hiding", 1);
-
-    Quote quoteTest = new Quote("Maya Angelou", "If you don't like something, change it. If you can't change it, change your attitude.", 2);
-
     // Testing GET /word
     @Test
     public void shouldReturnWord() throws Exception {
-
-        // ARRANGE
-        // Convert Java object to JSON
-        String outputJson = mapper.writeValueAsString(defTest);
-
         // ACT
         mockMvc.perform(get("/word"))                // Perform the GET request
                 .andDo(print())                          // Print results to console
@@ -82,7 +73,7 @@ public class MagicQuestionControllerTest {
         Answer outputQuestion = new Answer();
         outputQuestion.setQuestion(question);
         outputQuestion.setAnswer("Yes.");
-        outputQuestion.setId(3);
+        outputQuestion.setId("3");
 
         String outputJson = mapper.writeValueAsString(outputQuestion);
 
