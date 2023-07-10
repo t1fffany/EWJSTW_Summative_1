@@ -3,10 +3,8 @@ package com.MagicQuestion.MagicQuestion;
 //import com.MagicQuestion.MagicQuestion.models.Question;
 //import com.MagicQuestion.MagicQuestion.models.Quote;
 
-import com.MagicQuestion.MagicQuestion.controller.Magic8BallAPIController;
 import com.MagicQuestion.MagicQuestion.controller.WordAPIController;
-import com.MagicQuestion.MagicQuestion.models.Answer;
-import com.MagicQuestion.MagicQuestion.models.Word;
+import com.MagicQuestion.MagicQuestion.models.Definition;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +28,14 @@ public class WordAPIControllerTest {
     @Test
     public void shouldReturnWordOfTheDay() throws Exception {
         // ARRANGE
-        Word inputWord = new Word();
+        Definition inputWord = new Definition();
         inputWord.setWord("abscond");
         inputWord.setDefinition("to secretly leave a place and go into hiding");
 
         // Convert Java Object to JSON
         String inputJson = mapper.writeValueAsString(inputWord);
 
-        Word outputWord = new Word();
+        Definition outputWord = new Definition();
         outputWord.setWord("abscond");
         outputWord.setDefinition("to secretly leave a place and go into hiding");
 

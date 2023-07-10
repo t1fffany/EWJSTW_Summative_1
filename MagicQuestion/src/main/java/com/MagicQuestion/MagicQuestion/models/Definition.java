@@ -3,7 +3,7 @@ package com.MagicQuestion.MagicQuestion.models;
 import java.util.*;
 
 
-public class Word {
+public class Definition {
     private static HashMap<String, String> definitions = new HashMap<String, String>() {{
         put("abscond", "to secretly leave a place and go into hiding");
         put("girandole", "an ornamental branched candlestick");
@@ -22,7 +22,7 @@ public class Word {
     private String word;
     private String definition;
 
-    public Word(){
+    public Definition(){
         id = idCounter++;
         Random random = new Random();
         // map definitions hashmap to arrayList
