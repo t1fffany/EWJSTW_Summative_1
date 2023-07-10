@@ -55,6 +55,13 @@ public class Answer {
         this.question = question;
     }
 
+    public String getQuestion() {
+        return this.question;
+    }
+
+    public String getID() {
+        return this.id;
+    }
     @Override
     public String toString() {
         return String.format("{id: %s, question: %s, answer: %s}", id, question, answer);
