@@ -5,21 +5,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.MagicQuestion.MagicQuestion.models.Definition;
+import com.MagicQuestion.MagicQuestion.models.Word;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 
 @RestController
-public class WordController {
+public class WordAPIController {
 
     @RequestMapping(value = "/word", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public Definition wordOfTheDay() {
-        Definition dailyDefinition = new Definition();
+    public Word wordOfTheDay() {
+        Word dailyDefinition = new Word();
         return dailyDefinition;
     }
 }
