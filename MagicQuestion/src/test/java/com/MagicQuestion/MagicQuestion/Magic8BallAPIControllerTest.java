@@ -31,7 +31,7 @@ public class Magic8BallAPIControllerTest {
 
     // Testing GET /word
     @Test
-    public void magic8BallAPIs() throws Exception {
+    public void shouldReturnAnswerOfTheDayIfQuestionNotEmpty() throws Exception {
         // ARRANGE
         Answer inputAnswer = new Answer("Will it rain today?");
         inputAnswer.setId("1");
@@ -57,5 +57,31 @@ public class Magic8BallAPIControllerTest {
 
     }
 
+    @Test
+    public void shouldReturnAnswerOfTheDayIfQuestionIsEmpty() throws Exception {
+        // ARRANGE
+        Answer inputAnswer = new Answer("");
+        inputAnswer.setId("1");
+        inputAnswer.setAnswer("As likely as a new season premiere.");
+
+        // Convert Java object to JSON
+        String inputJson = mapper.writeValueAsString(inputAnswer);
+
+        // ARRANGE
+        Answer outputAnswer = new Answer("");
+        outputAnswer.setId("1");
+        outputAnswer.setAnswer("As likely as a new season premiere.");
+
+        String outputJson = mapper.writeValueAsString(outputAnswer);
+
+        // ACT
+        mockMvc.perform(
+                        post("/magic")               // Perform the GET request
+                                .content(inputJson)
+                                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())                          // Print results to console
+                .andExpect(status().isOk());             // ASSERT (status code is 200)
+
+    }
 
 }

@@ -28,7 +28,7 @@ public class WordAPIControllerTest {
 
     // Testing POST /magic
     @Test
-    public void shouldCreateWordOfTheDay() throws Exception {
+    public void shouldReturnWordOfTheDay() throws Exception {
         // ARRANGE
         Word inputWord = new Word();
         inputWord.setWord("abscond");

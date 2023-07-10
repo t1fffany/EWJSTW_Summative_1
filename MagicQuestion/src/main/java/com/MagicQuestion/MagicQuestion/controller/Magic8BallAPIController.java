@@ -10,8 +10,13 @@ public class Magic8BallAPIController {
 
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public Answer magic8BallAPI(@RequestBody String question) {
-        Answer answer = new Answer(question);
+    public Answer magic8BallAPI(@RequestBody(required = false) String question) {
+        Answer answer;
+        if (question == null || question.isEmpty()) {
+            answer = new Answer("");
+        } else {
+            answer = new Answer(question);
+        }
         return answer;
     }
 }
